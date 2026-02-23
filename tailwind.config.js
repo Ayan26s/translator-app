@@ -6,22 +6,25 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily:{
-        righteous:['Righteous' , 'sans-serif'],
-        russoOne:['Russo One' , 'sans-serif'],
-        notoSansJP:['Noto Sans Jp' , 'sans-serif'],
-        shojumaru:['Shojumaru' , 'system-ui'],
+      fontFamily: {
+        righteous: ['Righteous', 'sans-serif'],
+        russoOne: ['Russo One', 'sans-serif'],
+        notoSansJP: ['"Noto Sans JP"', 'sans-serif'], // Fixed capitalization & added quotes
+        shojumaru: ['Shojumaru', 'system-ui'],
       },
-      translate: ['active'],
+      // Deleted "translate: ['active']" - see explanation below
     },
   },
   plugins: [
-    function({addUtilities}) {
-      const newUtilities ={
-        '.scrollbar-hide':{
-          '::-webkit-scrollbar':{display :'none'},
-          '-ms-overflow-style':'none',
-          'scrollbar-width':'none',
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.scrollbar-hide': {
+          /* Chrome, Safari and Opera */
+          '::-webkit-scrollbar': { display: 'none' },
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+          /* Firefox */
+          'scrollbar-width': 'none',
         }
       }
       addUtilities(newUtilities)

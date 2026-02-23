@@ -1,23 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Righteous&family=Russo+One&family=Shojumaru&display=swap");
 
 @tailwind base;
+
 @tailwind components;
 @tailwind utilities;
+
 * {
   outline: none;
 }
 
+/* 1. REMOVED height: 100% and #root from here */
 html,
-body,
-#root {
+body {
   padding: 0;
   margin: 0;
-  height: 100%;
   font-family: "Russo One", "sans-serif";
 }
 
+/* 2. MOVED #root here and added min-h-screen */
 #root {
-  @apply flex justify-center items-center bg-gradient-to-l from-[#b6f492] to-[#338b93];
+  @apply min-h-screen w-full flex justify-center items-center bg-gradient-to-l from-[#b6f492] to-[#338b93] py-10;
 }
 
 .language {
